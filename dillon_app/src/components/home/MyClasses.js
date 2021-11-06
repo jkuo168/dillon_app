@@ -43,8 +43,10 @@ export default function MyClasses() {
 
   return (
     <Box>
-      <Typography style={{fontFamily: "Gill Sans", fontSize:"2em" }}>My Classes</Typography>
-      <Carousel classes={classes} isClass={true}/>
+      <Typography style={{ fontFamily: "Gill Sans", fontSize: "2em" }}>
+        My Classes
+      </Typography>
+      <Carousel classes={classes} isClass={true} />
     </Box>
   );
 }

@@ -5,7 +5,7 @@ import HomeInfo from "../components/home/HomeInfo";
 
 export default function HomePage() {
   return (
-    <Box sx={{ m: 2 }}>
+    <Box>
       <Box sx={{ textAlign: "right" }}>
         <AppBar />
       </Box>

@@ -6,10 +6,10 @@ import Categories from "./Categories";
 
 export default function HomeInfo() {
   return (
-    <Box style={{display:"flex", flexDirection:"column", padding:"1%"}}>
-      <MyClasses/>
-      <TodayClasses/>
-      <Categories/>
+    <Box sx={{ padding: "1%" }}>
+      <MyClasses />
+      <TodayClasses />
+      <Categories />
     </Box>
   );
 }

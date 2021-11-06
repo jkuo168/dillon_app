@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../axios";
-import { Box, Typography, Card, Divider } from "@mui/material";
+import { Box, Typography, Card, Divider, IconButton } from "@mui/material";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 
 export default function ClassInfo(props) {
   const { id } = useParams();
@@ -25,11 +26,19 @@ export default function ClassInfo(props) {
 
   return (
     <Box>
-      <Box sx={{ position: "relative", textAlign: "center", color: "white" }}>
-        <img
-          style={{ width: "100%", height: "50vh" }}
-          src={details.image}
-        ></img>
+      <Box
+        sx={{
+          position: "relative",
+          textAlign: "center",
+          color: "white",
+        }}
+      >
+        <Box sx={{ height: "50vh", overflow: "hidden" }}>
+          <img
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            src={details.image}
+          ></img>
+        </Box>
         <Box
           sx={{
             position: "absolute",
@@ -38,8 +47,29 @@ export default function ClassInfo(props) {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <Typography variant="h1">{details.title}</Typography>
-          <Typography variant="h5">{details.instructor}</Typography>
+          <Typography
+            variant="h1"
+            sx={{ fontWeight: 500, fontFamily: "Gill Sans" }}
+          >
+            {details.title}
+          </Typography>
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}
+          >
+            Dillon Athletics Room
+          </Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              mt: 3,
+              fontWeight: 500,
+              textTransform: "uppercase",
+              fontFamily: "Gill Sans",
+            }}
+          >
+            {details.instructor}
+          </Typography>
         </Box>
       </Box>
       <Box sx={{ position: "relative", textAlign: "center", color: "white" }}>
@@ -64,7 +94,10 @@ export default function ClassInfo(props) {
               boxShadow: "none",
             }}
           >
-            <Typography variant="h6" sx={{ textAlign: "center", mb: 5 }}>
+            <Typography
+              variant="h6"
+              sx={{ textAlign: "center", mb: 5, fontWeight: 800 }}
+            >
               60 MIN
             </Typography>
           </Card>
@@ -73,7 +106,7 @@ export default function ClassInfo(props) {
       <Box
         sx={{
           textAlign: "center",
-          mt: 7,
+          mt: 15,
           position: "absolute",
           width: "100%",
           top: "50%",
@@ -81,9 +114,31 @@ export default function ClassInfo(props) {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Typography>{details.date}</Typography>
+        <Typography
+          variant="h5"
+          sx={{ mt: 2, fontWeight: 200, fontFamily: "Gill Sans" }}
+        >
+          Saturday, Nov 6
+        </Typography>
+        <Typography sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}>
+          11:30 AM - 12:30 PM
+        </Typography>
+        <Box sx={{ m: 2 }}>
+          <IconButton sx={{ color: "black" }}>
+            <CalendarTodayOutlinedIcon />
+          </IconButton>
+          <Typography
+            variant="body2"
+            sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}
+          >
+            ADD TO CALENDAR
+          </Typography>
+        </Box>
+        {/* <Typography>{details.date}</Typography> */}
         <Divider />
-        <Typography>{details.description}</Typography>
+        <Typography sx={{ m: 2, fontWeight: 200, fontFamily: "Gill Sans" }}>
+          {details.description}
+        </Typography>
       </Box>
     </Box>
   );

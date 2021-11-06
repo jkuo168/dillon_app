@@ -1,6 +1,6 @@
 import React from "react";
 import {
-//   Box,
+  //   Box,
   Typography,
   CardMedia,
   CardContent,
@@ -12,8 +12,19 @@ import {
 
 export default function MediaCard(props) {
   return (
-    <Card sx={{ maxWidth: 345, minWidth: 200, m: 1, boxShadow: 10, borderRadius: '9%' }}>
-      <CardActionArea href={`/category/${props.category.name}/${props.category.id}`}>
+    <Card
+      sx={{
+        maxWidth: "300px",
+        minWidth: "300px",
+        m: 1,
+        mb: 2,
+        boxShadow: 4,
+        borderRadius: "9%",
+      }}
+    >
+      <CardActionArea
+        href={`/category/${props.category.name}/${props.category.id}`}
+      >
         <CardMedia
           component="img"
           height="140"
@@ -21,7 +32,7 @@ export default function MediaCard(props) {
           alt="yoga"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" sx={{ textAlign: "center" }}>
             {props.category.name}
           </Typography>
         </CardContent>

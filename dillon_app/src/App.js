@@ -6,7 +6,7 @@ import ProfilePage from "./views/ProfilePage";
 import ClassInfoPage from "./views/ClassInfoPage";
 import CategoryListPage from "./views/CategoryListPage";
 import theme from "./components/theme";
-import './App.css';
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -16,7 +16,10 @@ function App() {
           <Route exact path="/calendar" component={CalendarPage} />
           <Route exact path="/profile" component={ProfilePage} />
           <Route path="/class/:id" component={ClassInfoPage} />
-          <Route path="/category/:categoryName/:id" component={CategoryListPage} />
+          <Route
+            path="/category/:categoryName/:id"
+            component={CategoryListPage}
+          />
         </Switch>
       </Router>
     </ThemeProvider>

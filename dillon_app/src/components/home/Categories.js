@@ -26,7 +26,7 @@ export default function Categories() {
   }, [])
   return (
     <Box>
-      <Typography>Categories</Typography>
+      <Typography style={{fontFamily: "Gill Sans" , fontSize:"2em"}}>Categories</Typography>
       <Carousel classes={categories} isClass={false} />
     </Box>
   );

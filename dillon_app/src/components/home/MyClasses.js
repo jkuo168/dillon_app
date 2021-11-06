@@ -11,6 +11,7 @@ export default function MyClasses() {
           const url = "/users/"+ "61864f7529827fe462796a20";
 
           const response = await axios.get(url).then((result) => { // get all class id's user is in
+            console.log("DEBUG")
             console.log(result.data)
             result.data.forEach(async (item) => { // for each class id, get the actual class
               console.log(item)
@@ -38,7 +39,7 @@ export default function MyClasses() {
 
   return (
     <Box>
-      <Typography>My Classes</Typography>
+      <Typography style={{fontFamily: "Gill Sans", fontSize:"2em" }}>My Classes</Typography>
       <Carousel classes={classes} isClass={true}/>
     </Box>
   );

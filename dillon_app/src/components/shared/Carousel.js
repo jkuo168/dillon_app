@@ -11,6 +11,7 @@ export default function Carousel(props) {
       sx={{
         display: "flex",
         flexDirection: "row",
+        justifyContent: "flex-start",
         width: "100%",
         overflow: "auto",
       }}

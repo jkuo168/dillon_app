@@ -6,7 +6,7 @@ import ProfilePage from "./views/ProfilePage";
 import ClassInfoPage from "./views/ClassInfoPage";
 import CategoryListPage from "./views/CategoryListPage";
 import theme from "./components/theme";
-
+import './App.css';
 function App() {
   return (
     <ThemeProvider theme={theme}>

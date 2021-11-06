@@ -36,7 +36,7 @@ export default function TodayClasses() {
 
   return (
     <Box>
-      <Typography>Today's Classes</Typography>
+      <Typography style={{fontFamily: "Gill Sans", fontSize:"2em" }}>Today's Classes</Typography>
       <Carousel classes={classes} isClass={true} />
     </Box>
   );

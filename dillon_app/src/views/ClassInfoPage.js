@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "../axios";
 import { Box, Typography, Card, Divider, IconButton } from "@mui/material";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import AppBar from "../components/shared/AppBar";
 
 export default function ClassInfo(props) {
   const { id } = useParams();
@@ -26,6 +27,7 @@ export default function ClassInfo(props) {
 
   return (
     <Box>
+      <AppBar />
       <Box
         sx={{
           position: "relative",
@@ -106,7 +108,7 @@ export default function ClassInfo(props) {
       <Box
         sx={{
           textAlign: "center",
-          mt: 20,
+          mt: "15%",
           position: "absolute",
           width: "100%",
           top: "50%",
@@ -116,12 +118,15 @@ export default function ClassInfo(props) {
       >
         <Typography
           variant="h5"
-          sx={{ mt: 2, fontWeight: 200, fontFamily: "Gill Sans" }}
+          sx={{ mt: 2, fontWeight: 400, fontFamily: "Gill Sans" }}
         >
           Saturday, Nov 6
         </Typography>
         <Typography sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}>
           11:30 AM - 12:30 PM
+        </Typography>
+        <Typography sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}>
+          Attendees: {details.numEnrolled}
         </Typography>
         <Box sx={{ m: 2 }}>
           <IconButton sx={{ color: "black" }}>
@@ -135,12 +140,15 @@ export default function ClassInfo(props) {
           </Typography>
         </Box>
         {/* <Typography>{details.date}</Typography> */}
-        <Divider />
-        <Typography sx={{ m: 2, fontWeight: 200, fontFamily: "Gill Sans" }}>
-          {details.description}
-        </Typography>
-        <Typography>{details.numEnrolled}</Typography>
-        <Typography>{"Upcoming Sessions:"}</Typography>
+        <Box sx={{ width: "80%", alignItems: "center", margin: "auto" }}>
+          <Divider />
+          <Typography sx={{ m: 2, fontWeight: 200, fontFamily: "Gill Sans" }}>
+            {details.description}
+          </Typography>
+          <Typography sx={{ fontFamily: "Gill Sans" }}>
+            Upcoming Sessions:
+          </Typography>
+        </Box>
         {/* {details.nextSessions.forEach(date => {
           console.log(date)
         })} */}

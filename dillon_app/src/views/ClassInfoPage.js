@@ -28,7 +28,7 @@ export default function ClassInfo(props) {
       <Box sx={{ position: "relative", textAlign: "center", color: "white" }}>
         <img
           style={{ width: "100%", height: "50vh" }}
-          src="https://cdn.shopify.com/s/files/1/2185/2813/files/10.11.21_HO21_HPHeroYogawheel_2048x2048.progressive.jpg?v=1635454423"
+          src={details.image}
         ></img>
         <Box
           sx={{

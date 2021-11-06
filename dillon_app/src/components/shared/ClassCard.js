@@ -18,7 +18,7 @@ export default function MediaCard(props) {
         <CardMedia
           component="img"
           height="140"
-          image="https://static01.nyt.com/images/2016/12/06/well/move/yoga-for-everyone_promo/yoga-for-everyone_promo-superJumbo-v2.jpg"
+          image={props.class.image}
           alt="yoga"
         />
         <CardContent>

@@ -23,7 +23,8 @@ export default function ProfilePage() {
                     name: data.title,
                     time: data.date,
                     location: "Frist 212",
-                    classId: data._id
+                    classId: data._id,
+                    image: data.image
                   }])
                 });
               });
@@ -38,7 +39,7 @@ export default function ProfilePage() {
   
     return (
       <Box>
-        <Typography>My Classes</Typography>
+        <Typography style={{fontFamily: "Gill Sans", fontSize:"2em" }}>My Classes</Typography>
         <Carousel classes={classes} isClass={true}/>
       </Box>
     );

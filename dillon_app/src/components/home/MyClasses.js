@@ -30,6 +30,7 @@ export default function MyClasses() {
                 time: data.date,
                 location: "Frist 212",
                 classId: data._id,
+                image: data.image,
               },
             ]);
           });

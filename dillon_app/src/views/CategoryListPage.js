@@ -22,7 +22,8 @@ export default function CategoryListPage(props) {
                  name: item.title,
                   time: item.date,
                   location: "Frist 212", 
-                  classId: item._id
+                  classId: item._id,
+                  image: item.image
                 }])
             });   
           });         
@@ -33,11 +34,13 @@ export default function CategoryListPage(props) {
   }, [id])
 
   return (
-    <Box>
-      <Typography>{categoryName} Classes</Typography>
-      {classes.map((c) => {
-        return <ClassCard class={c} />;
-      })}
-    </Box>
+    <div style={{display: "flex", justifyContent:"center"}}>
+      <Box>
+        <Typography style={{fontFamily: "Gill Sans", fontSize:"2em" }}>{categoryName} Classes</Typography>
+          {classes.map((c) => {
+            return <ClassCard class={c} />;
+          })}
+      </Box>
+    </div>
   );
 }

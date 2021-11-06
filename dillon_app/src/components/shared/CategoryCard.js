@@ -13,7 +13,7 @@ import {
 export default function MediaCard(props) {
   return (
     <Card sx={{ maxWidth: 345, minWidth: 200, m: 1 }}>
-      <CardActionArea href={`/class/${props.classId}`}>
+      <CardActionArea href={`/category/${props.category.name}/${props.category.id}`}>
         <CardMedia
           component="img"
           height="140"

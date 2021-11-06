@@ -15,7 +15,8 @@ export default function Categories() {
             console.log(result)
             result.data.forEach(async (item) => { // for each category id, get the actual class
                 setCategories(oldArr => [...oldArr, {
-                  name: item.name
+                  name: item.name,
+                  id: item.categoryId
                 }])
           });         
         })

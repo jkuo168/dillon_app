@@ -37,7 +37,7 @@ export default function TodayClasses() {
   return (
     <Box>
       <Typography>Today's Classes</Typography>
-      <Carousel classes={classes} />
+      <Carousel classes={classes} isClass={true} />
     </Box>
   );
 }

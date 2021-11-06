@@ -39,7 +39,7 @@ export default function MyClasses() {
   return (
     <Box>
       <Typography>My Classes</Typography>
-      <Carousel classes={classes} />
+      <Carousel classes={classes} isClass={true}/>
     </Box>
   );
 }

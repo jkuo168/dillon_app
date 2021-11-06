@@ -96,7 +96,7 @@ export default function ClassInfo(props) {
           >
             <Typography
               variant="h6"
-              sx={{ textAlign: "center", mb: 5, fontWeight: 800 }}
+              sx={{ textAlign: "center", mb: "30%", fontWeight: 800 }}
             >
               60 MIN
             </Typography>
@@ -106,7 +106,7 @@ export default function ClassInfo(props) {
       <Box
         sx={{
           textAlign: "center",
-          mt: 15,
+          mt: 20,
           position: "absolute",
           width: "100%",
           top: "50%",
@@ -139,6 +139,18 @@ export default function ClassInfo(props) {
         <Typography sx={{ m: 2, fontWeight: 200, fontFamily: "Gill Sans" }}>
           {details.description}
         </Typography>
+        <Typography>{details.numEnrolled}</Typography>
+        <Typography>{"Upcoming Sessions:"}</Typography>
+        {/* {details.nextSessions.forEach(date => {
+          console.log(date)
+        })} */}
+        {/* {
+          details.nextSessions.forEach(date => {
+            console.log("This");
+            console.log(date.toString());
+            return <Typography>{date.toString()}</Typography>
+          })
+        } */}
       </Box>
     </Box>
   );

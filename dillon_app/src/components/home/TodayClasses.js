@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import Carousel from "../shared/Carousel";
 

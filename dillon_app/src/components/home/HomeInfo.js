@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { Box } from "@mui/material";
 import MyClasses from "./MyClasses";
 import TodayClasses from "./TodayClasses";

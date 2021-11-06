@@ -84,6 +84,18 @@ export default function ClassInfo(props) {
         <Typography>{details.date}</Typography>
         <Divider />
         <Typography>{details.description}</Typography>
+        <Typography>{details.numEnrolled}</Typography>
+        <Typography>{"Upcoming Sessions:"}</Typography>
+        {/* {details.nextSessions.forEach(date => {
+          console.log(date)
+        })} */}
+        {/* {
+          details.nextSessions.forEach(date => {
+            console.log("This");
+            console.log(date.toString());
+            return <Typography>{date.toString()}</Typography>
+          })
+        } */}
       </Box>
     </Box>
   );

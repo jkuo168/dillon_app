@@ -16,12 +16,14 @@ export default function Carousel(props) {
         overflow: "auto",
       }}
     >
-      {props.isClass && classes.map((c) => {
-        return <ClassCard class={c} />;
-      })}
-      {!props.isClass && classes.map((c) => {
-        return <CategoryCard category={c} />;
-      })}
+      {props.isClass &&
+        classes.map((c, index) => {
+          return <ClassCard class={c} key={index + c} />;
+        })}
+      {!props.isClass &&
+        classes.map((c, index) => {
+          return <CategoryCard category={c} key={index + c} />;
+        })}
     </Box>
   );
 }

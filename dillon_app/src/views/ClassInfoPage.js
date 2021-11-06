@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import axios from '../axios';
+import { Box, Typography } from "@material-ui/core";
 
 export default function ClassInfo(props) {
-  // perform axios call
-  const data = "123";
 
-  if (data) {
-    return <div>Class Info</div>;
-  } else {
-    return <div>404</div>;
-  }
+  const { id } = useParams()
+  const [details, setDetails] = useState({});
+  console.log("ID")
+  console.log(id)
+  useEffect(() => {
+      async function getClasses() {
+          const url = "/classes/info/"+ id;
+          console.log(id)
+
+          const response = await axios.get(url).then((result) => { // get all class id's user is in
+            console.log(result.data[0])
+            setDetails(result.data[0])
+          });         
+          return response;
+      }
+      getClasses();
+
+  }, [id])
+
+  return (
+    <Box>
+      <Typography>Class Details</Typography>
+      {details.title}
+      {details.description}
+      {details.instructor}
+      {details.date}
+    </Box>
+  );
 }

@@ -21,7 +21,7 @@ export default function CalendarPage() {
         setClassList(oldArr => [...oldArr, {
           name: item.title,
           time: item.date,
-          location: "Frist 212", 
+          location: "Dillon Studio", 
           classId: item._id,
           image: item.image
         }])

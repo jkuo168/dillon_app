@@ -28,7 +28,7 @@ export default function MyClasses() {
               {
                 name: data.title,
                 time: data.date,
-                location: "Frist 212",
+                location: "Dillon Studio",
                 classId: data._id,
                 image: data.image,
               },

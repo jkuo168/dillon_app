@@ -11,6 +11,7 @@ export default function ClassInfo(props) {
   const [details, setDetails] = useState({});
   const [register, setRegister] = useState("Register");
   const [numEnrolled, setNumEnrolled] = useState(0);
+
   console.log("ID");
   console.log(id);
 
@@ -173,21 +174,7 @@ export default function ClassInfo(props) {
             Upcoming Sessions:
           </Typography> */}
         </Box>
-                  
-        {/* { details.nextSessions &&
-          details.nextSessions.map(function(object){
-            return <Typography>{object}</Typography>;
-        })} */}
-        {/* {details.nextSessions.forEach(date => {
-          console.log(date)
-        })} */}
-        {/* {
-          details.nextSessions.forEach(date => {
-            console.log("This");
-            console.log(date.toString());
-            return <Typography>{date.toString()}</Typography>
-          })
-        } */}
+                 
       </Box>
     </Box>
   );

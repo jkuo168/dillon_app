@@ -10,7 +10,6 @@ export default function ProfilePage() {
   const [classes, setClasses] = useState([]);
   const [formOpen, setFormOpen] = useState(false);
   const handleForm = () => {
-    console.log("here");
     setFormOpen(true);
   };
 

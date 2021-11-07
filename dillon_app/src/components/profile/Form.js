@@ -27,6 +27,11 @@ export default function AddCourseForm(props) {
   };
 
   const handleCancel = () => {
+    setName("");
+    setTitle("");
+    setDescription("");
+    setDate("");
+    setImage("");
     props.setFormOpen(!props.formOpen);
   };
 

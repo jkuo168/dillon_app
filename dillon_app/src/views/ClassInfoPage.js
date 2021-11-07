@@ -5,12 +5,13 @@ import { Box, Typography, Card, Divider, IconButton } from "@mui/material";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import AppBar from "../components/shared/AppBar";
 import Link from '@mui/material/Link';
-
+import Facepile from '../components/shared/Facepile';
 export default function ClassInfo(props) {
   const { id } = useParams();
   const [details, setDetails] = useState({});
   const [register, setRegister] = useState("Register");
   const [numEnrolled, setNumEnrolled] = useState(0);
+
   console.log("ID");
   console.log(id);
 
@@ -121,7 +122,7 @@ export default function ClassInfo(props) {
       <Box
         sx={{
           textAlign: "center",
-          mt: "15%",
+          mt: "20%",
           position: "absolute",
           width: "100%",
           top: "50%",
@@ -141,6 +142,9 @@ export default function ClassInfo(props) {
         <Typography sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}>
           Attendees: {numEnrolled}
         </Typography>
+        <div style={{marginTop: "1%", display: "flex", justifyContent: "center"}}>
+        <Facepile numEnrolled={numEnrolled}></Facepile>
+        </div>
         <Box sx={{ display: "flex", flexDirection: "column", m: 2 }}>
           {console.log("Blah")}
           {console.log(details)}
@@ -173,21 +177,7 @@ export default function ClassInfo(props) {
             Upcoming Sessions:
           </Typography> */}
         </Box>
-                  
-        {/* { details.nextSessions &&
-          details.nextSessions.map(function(object){
-            return <Typography>{object}</Typography>;
-        })} */}
-        {/* {details.nextSessions.forEach(date => {
-          console.log(date)
-        })} */}
-        {/* {
-          details.nextSessions.forEach(date => {
-            console.log("This");
-            console.log(date.toString());
-            return <Typography>{date.toString()}</Typography>
-          })
-        } */}
+                 
       </Box>
     </Box>
   );

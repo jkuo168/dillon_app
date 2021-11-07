@@ -24,7 +24,7 @@ export default function CalendarPage() {
           {
             name: item.title,
             time: item.date,
-            location: "Frist 212",
+            location: "Dillon Studio",
             classId: item._id,
             image: item.image,
           },

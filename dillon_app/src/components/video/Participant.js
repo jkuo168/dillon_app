@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Box, Typography } from "@mui/material";
 
 const Participant = ({ participant }) => {
   const [videoTracks, setVideoTracks] = useState([]);
@@ -63,19 +64,39 @@ const Participant = ({ participant }) => {
   }, [audioTracks]);
 
   return (
-    <div style={{ background: "#F78812",
-      padding: "10px",
-      borderRadius: "6px",
-      display: "inline-block",
-      marginRight: "10px"}}>
-      <h3>{participant.identity}</h3>
-      <video ref={videoRef} autoPlay={true} />
-      <audio ref={audioRef} style={{width: "100%",
-  maxWidth: "600px",
-  display: "block",
-  margin: "0 auto",
-  borderRadius: "6px"}}autoPlay={true} muted={false} />
-    </div>
+    <Box
+      sx={{
+        width: "fit-content",
+        justifyContent: "center",
+        borderColor: "#F78812",
+        borderStyle: "solid",
+        borderWidth: "10px",
+        borderRadius: 2,
+        backgroundColor: "#F78812",
+        ml: 2,
+      }}
+    >
+      <Box sx={{ position: "relative" }}>
+        <Typography
+          variant="h6"
+          style={{
+            fontFamily: "Gill Sans",
+            color: "white",
+            position: "absolute",
+            top: 2,
+            left: 5,
+          }}
+        >
+          {participant.identity}
+        </Typography>
+      </Box>
+      <video
+        style={{ borderRadius: 8, width: "100%" }}
+        ref={videoRef}
+        autoPlay={true}
+      />
+      <audio ref={audioRef} autoPlay={true} muted={false} />
+    </Box>
   );
 };
 

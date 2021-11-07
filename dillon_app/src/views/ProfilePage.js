@@ -1,46 +1,97 @@
-import axios from '../axios';
+import axios from "../axios";
 import React, { useState, useEffect } from "react";
-import { Box, Typography } from "@material-ui/core";
-import Carousel from "../components/shared/Carousel";
-
+import { Box, Typography, Card, Grid } from "@mui/material";
+import AppBar from "../components/shared/AppBar";
+import ClassCard from "../components/shared/ClassCard";
 export default function ProfilePage() {
-    const [classes, setClasses] = useState([]);
+  const [classes, setClasses] = useState([]);
 
-    useEffect(() => {
-        async function getClasses() {
-            const url = "/users/"+ "61864f7529827fe462796a20";
-  
-            const response = await axios.get(url).then((result) => { // get all class id's user is in
-              console.log(result.data)
-              result.data.forEach(async (item) => { // for each class id, get the actual class
-                console.log(item)
-                const url2 = "/classes/info/"+ item;
-                const response2 = await axios.get(url2).then((result2) => {
-                  console.log("ook")
-                  console.log(result2.data[0])
-                  const data = result2.data[0];
-                  setClasses(oldArr => [...oldArr, {
-                    name: data.title,
-                    time: data.date,
-                    location: "Frist 212",
-                    classId: data._id,
-                    image: data.image
-                  }])
-                });
-              });
-            });         
-            return response;
-        }
-        getClasses();
-  
-    }, [])
-  
-  
-  
-    return (
-      <Box>
-        <Typography style={{fontFamily: "Gill Sans", fontSize:"2em" }}>My Classes</Typography>
-        <Carousel classes={classes} isClass={true}/>
+  useEffect(() => {
+    async function getClasses() {
+      const url = "/users/" + "61864f7529827fe462796a20";
+
+      const response = await axios.get(url).then((result) => {
+        // get all class id's user is in
+        console.log(result.data);
+        result.data.forEach(async (item) => {
+          // for each class id, get the actual class
+          console.log(item);
+          const url2 = "/classes/info/" + item;
+          const response2 = await axios.get(url2).then((result2) => {
+            console.log("ook");
+            console.log(result2.data[0]);
+            const data = result2.data[0];
+            setClasses((oldArr) => [
+              ...oldArr,
+              {
+                name: data.title,
+                time: data.date,
+                location: "Frist 212",
+                classId: data._id,
+                image: data.image,
+              },
+            ]);
+          });
+        });
+      });
+      return response;
+    }
+    getClasses();
+  }, []);
+
+  return (
+    <Box>
+      <AppBar />
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          mt: 5,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Card sx={{ borderRadius: "50%", width: "15vw", height: "15vw" }}>
+          <img
+            style={{ height: "100%", width: "100%", objectFit: "cover" }}
+            src="https://president.princeton.edu/sites/president/files/styles/pwds_media_large_no_crop/public/media/indoor-crop.jpg?itok=oK7GlOXV"
+          ></img>
+        </Card>
+        <Box sx={{ ml: 5 }}>
+          <Typography variant="h4" sx={{ fontFamily: "Gill Sans" }}>
+            Christopher Eisgruber
+          </Typography>
+          <Typography variant="h5" sx={{ fontFamily: "Gill Sans" }}>
+            Administrator
+          </Typography>
+          <Typography sx={{ fontFamily: "Gill Sans" }}>
+            Classes Taken: 5
+          </Typography>
+          <Typography sx={{ fontFamily: "Gill Sans" }}>
+            Classes Taught: 10
+          </Typography>
+          <Typography sx={{ fontFamily: "Gill Sans" }}>
+            Diamond League
+          </Typography>
+        </Box>
       </Box>
-    );
+      <Box sx={{ m: 5 }}>
+        <Typography sx={{ fontFamily: "Gill Sans", fontSize: "2em", mb: 2 }}>
+          My Classes ({classes.length != 0 ? classes.length : ""})
+        </Typography>
+        <Box>
+          <Grid container spacing={2}>
+            {classes.map((c) => {
+              return (
+                <Grid sx={{ margin: classes.length < 4 ? "" : "auto" }}>
+                  <ClassCard class={c} />
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Box>
+      </Box>
+    </Box>
+  );
 }

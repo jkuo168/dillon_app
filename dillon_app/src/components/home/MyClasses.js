@@ -20,9 +20,12 @@ export default function MyClasses() {
           console.log(item);
           const url2 = "/classes/info/" + item;
           const response2 = await axios.get(url2).then((result2) => {
+            console.log(url2);
             console.log("ook");
             console.log(result2.data[0]);
             const data = result2.data[0];
+            console.log("odd")
+            console.log(data.title);
             setClasses((oldArr) => [
               ...oldArr,
               {

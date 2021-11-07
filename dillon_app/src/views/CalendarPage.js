@@ -66,6 +66,7 @@ export default function CalendarPage() {
         <div
           style={{
             display: "flex",
+            justifyContent: "center",
             width: "90%",
             overflow: "auto",
           }}

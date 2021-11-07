@@ -21,6 +21,8 @@ export default function MediaCard(props) {
         maxWidth: "300px",
         minWidth: "300px",
         m: 2,
+        backgroundColor: "#9196A1",
+        color: "white", 
         boxShadow: 4,
         borderRadius: 2,
       }}

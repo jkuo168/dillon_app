@@ -8,7 +8,7 @@ export default function AppBar() {
         alignItems: "center",
         height: "5em",
         display: "flex",
-        backgroundColor: "#F78812",
+        backgroundColor: "#FF8303",
         boxShadow:
           "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)",
       }}

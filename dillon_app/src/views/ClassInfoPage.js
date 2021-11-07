@@ -114,7 +114,7 @@ export default function ClassInfo(props) {
           >
             <Typography
               variant="h6"
-              sx={{ textAlign: "center", mb: "30%", fontWeight: 800 }}
+              sx={{ textAlign: "center", mb: "5%", fontWeight: 800 }}
             >
               60 MIN
             </Typography>

@@ -7,6 +7,7 @@ import {
   Card,
   Button,
 } from "@mui/material";
+import axios from '../../axios';
 
 export default function AddCourseForm(props) {
   const [name, setName] = useState("");
@@ -15,8 +16,16 @@ export default function AddCourseForm(props) {
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
 
-  const handleAdd = () => {
+  const handleAdd = async() => {
     // TO DO AXIOS CALL
+    const params = {
+        instructor: name,
+        title, 
+        description,
+        date: date,
+        image
+    }
+    const response = await axios.post('/classes/posts', params);
 
     setName("");
     setTitle("");

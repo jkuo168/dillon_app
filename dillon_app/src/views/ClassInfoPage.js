@@ -4,8 +4,8 @@ import axios from "../axios";
 import { Box, Typography, Card, Divider, IconButton } from "@mui/material";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import AppBar from "../components/shared/AppBar";
-import Link from '@mui/material/Link';
-import Facepile from '../components/shared/Facepile';
+import Link from "@mui/material/Link";
+import Facepile from "../components/shared/Facepile";
 export default function ClassInfo(props) {
   const { id } = useParams();
   const [details, setDetails] = useState({});
@@ -18,9 +18,11 @@ export default function ClassInfo(props) {
   function isToday(date) {
     const dateObj = new Date(date);
     const now = new Date();
-    return dateObj.getDate() === now.getDate() &&
-    dateObj.getMonth() === now.getMonth() &&
-    dateObj.getFullYear() === now.getFullYear();
+    return (
+      dateObj.getDate() === now.getDate() &&
+      dateObj.getMonth() === now.getMonth() &&
+      dateObj.getFullYear() === now.getFullYear()
+    );
   }
   useEffect(() => {
     async function getClasses() {
@@ -29,7 +31,7 @@ export default function ClassInfo(props) {
 
       const response = await axios.get(url).then((result) => {
         // get all class id's user is in
-        console.log("NOT GO")
+        console.log("NOT GO");
         console.log(result.data[0]);
         setDetails(result.data[0]);
         setNumEnrolled(result.data[0].numEnrolled);
@@ -125,7 +127,7 @@ export default function ClassInfo(props) {
           mt: "20%",
           position: "absolute",
           width: "100%",
-          top: "50%",
+          top: "45%",
           left: "50%",
           transform: "translate(-50%, -50%)",
         }}
@@ -142,23 +144,47 @@ export default function ClassInfo(props) {
         <Typography sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}>
           Attendees: {numEnrolled}
         </Typography>
-        <div style={{marginTop: "1%", display: "flex", justifyContent: "center"}}>
-        <Facepile numEnrolled={numEnrolled}></Facepile>
+        <div
+          style={{ marginTop: "1%", display: "flex", justifyContent: "center" }}
+        >
+          <Facepile numEnrolled={numEnrolled}></Facepile>
         </div>
         <Box sx={{ display: "flex", flexDirection: "column", m: 2 }}>
           {console.log("Blah")}
           {console.log(details)}
-          {details && !isToday(details.date) && <Link onClick={() => {setRegister("Registered!"); setNumEnrolled(numEnrolled+1);}}
-            variant="body2" underline='none'
-            sx={{ color: "#F78812", fontWeight: "500", fontSize: "1.5em", fontFamily: "Gill Sans" }}
-          >
-            {register}
-          </Link>}
-          {details && isToday(details.date) && 
-          
-            <Link href={"/video/"+id} underline='none' variant="body2" sx={{color: "#F78812", fontWeight: 500, fontFamily: "Gill Sans"}}>
-              {"JOIN CLASS"}
-            </Link>          
+          {details && !isToday(details.date) && (
+            <Link
+              onClick={() => {
+                setRegister("Registered!");
+                setNumEnrolled(numEnrolled + 1);
+              }}
+              variant="body2"
+              underline="none"
+              sx={{
+                color: "#F78812",
+                fontWeight: "500",
+                fontSize: "1.5em",
+                fontFamily: "Gill Sans",
+              }}
+            >
+              {register}
+            </Link>
+          )}
+          {
+            details && isToday(details.date) && (
+              <Link
+                href={"/video/" + id}
+                underline="none"
+                variant="body2"
+                sx={{
+                  color: "#F78812",
+                  fontWeight: 500,
+                  fontFamily: "Gill Sans",
+                }}
+              >
+                {"JOIN CLASS"}
+              </Link>
+            )
             /*{/* <Typography
               variant="body2"
               sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}
@@ -177,7 +203,6 @@ export default function ClassInfo(props) {
             Upcoming Sessions:
           </Typography> */}
         </Box>
-                 
       </Box>
     </Box>
   );

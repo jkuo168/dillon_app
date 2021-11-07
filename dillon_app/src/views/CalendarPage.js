@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Calendar.css';
+import { Typography } from "@mui/material";
 import axios from '../axios';
 import ClassCard from "../components/shared/ClassCard";
 
@@ -39,7 +40,10 @@ export default function CalendarPage() {
   }, []);
 
   return (
-    <div>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <Typography sx={{ fontFamily: "Gill Sans", fontSize: "2em", m: 4 }}>
+          Gym-Wide Calendar
+        </Typography>
       <Calendar
         className={"react-calendar"}
         onChange={(value) => getClasses(value)}

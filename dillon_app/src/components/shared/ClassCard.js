@@ -11,6 +11,10 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 
 export default function MediaCard(props) {
+  function toDate(date) {
+    const dateObj = new Date(date);
+    return dateObj.toDateString();
+  }
   return (
     <Card
       sx={{
@@ -34,13 +38,13 @@ export default function MediaCard(props) {
           </Typography>
           <Box sx={{ display: "flex" }}>
             <AccessTimeOutlinedIcon />
-            <Typography variant="body2" component="div">
-              {props.class.time}
+            <Typography style={{paddingLeft: "5px"}} variant="body2" component="div">
+              {toDate(props.class.time)}
             </Typography>
           </Box>
           <Box sx={{ display: "flex" }}>
-            <LocationOnOutlinedIcon />
-            <Typography variant="body2" component="div">
+            <LocationOnOutlinedIcon  style={{paddingTop: "5px"}} />
+            <Typography style={{paddingLeft: "5px", paddingTop: "5px"}} variant="body2" component="div">
               {props.class.location}
             </Typography>
           </Box>

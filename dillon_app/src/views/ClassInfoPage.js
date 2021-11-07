@@ -4,12 +4,21 @@ import axios from "../axios";
 import { Box, Typography, Card, Divider, IconButton } from "@mui/material";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import AppBar from "../components/shared/AppBar";
+import Link from '@mui/material/Link';
 
 export default function ClassInfo(props) {
   const { id } = useParams();
   const [details, setDetails] = useState({});
   console.log("ID");
   console.log(id);
+
+  function isToday(date) {
+    const dateObj = new Date(date);
+    const now = new Date();
+    return dateObj.getDate() === now.getDate() &&
+    dateObj.getMonth() === now.getMonth() &&
+    dateObj.getFullYear() === now.getFullYear();
+  }
   useEffect(() => {
     async function getClasses() {
       const url = "/classes/info/" + id;
@@ -17,6 +26,7 @@ export default function ClassInfo(props) {
 
       const response = await axios.get(url).then((result) => {
         // get all class id's user is in
+        console.log("NOT GO")
         console.log(result.data[0]);
         setDetails(result.data[0]);
       });
@@ -128,16 +138,27 @@ export default function ClassInfo(props) {
         <Typography sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}>
           Attendees: {details.numEnrolled}
         </Typography>
-        <Box sx={{ m: 2 }}>
-          <IconButton sx={{ color: "black" }}>
-            <CalendarTodayOutlinedIcon />
-          </IconButton>
-          <Typography
-            variant="body2"
-            sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}
+        <Box sx={{ display: "flex", flexDirection: "column", m: 2 }}>
+          {console.log("Blah")}
+          {console.log(details)}
+          {details && !isToday(details.date) && <Link
+            variant="body2" underline='none'
+            sx={{ color: "#F78812", fontWeight: 500, fontFamily: "Gill Sans" }}
           >
-            ADD TO CALENDAR
-          </Typography>
+            REGISTER
+          </Link>}
+          {details && isToday(details.date) && 
+          
+            <Link href="/video" underline='none' variant="body2" sx={{color: "#F78812", fontWeight: 500, fontFamily: "Gill Sans"}}>
+              {"JOIN CLASS"}
+            </Link>          
+            /*{/* <Typography
+              variant="body2"
+              sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}
+            >
+              JOIN CLASS
+            </Typography>} */
+          }
         </Box>
         {/* <Typography>{details.date}</Typography> */}
         <Box sx={{ width: "80%", alignItems: "center", margin: "auto" }}>
@@ -145,10 +166,15 @@ export default function ClassInfo(props) {
           <Typography sx={{ m: 2, fontWeight: 200, fontFamily: "Gill Sans" }}>
             {details.description}
           </Typography>
-          <Typography sx={{ fontFamily: "Gill Sans" }}>
+          {/* <Typography sx={{ fontFamily: "Gill Sans" }}>
             Upcoming Sessions:
-          </Typography>
+          </Typography> */}
         </Box>
+                  
+        {/* { details.nextSessions &&
+          details.nextSessions.map(function(object){
+            return <Typography>{object}</Typography>;
+        })} */}
         {/* {details.nextSessions.forEach(date => {
           console.log(date)
         })} */}

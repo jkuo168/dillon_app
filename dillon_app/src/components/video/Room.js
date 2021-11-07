@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Box } from "@mui/material";
 import Participant from "./Participant";
+import AppBar from "../shared/AppBar";
+import { Typography } from "@mui/material";
 
 const Room = ({ roomName, room, handleLogout }) => {
   const [participants, setParticipants] = useState([]);
@@ -29,27 +32,40 @@ const Room = ({ roomName, room, handleLogout }) => {
   ));
 
   return (
-    <div style={{position: "relative"}}>
-      <h2 style={{fontFamily: "Gill Sans", color: "#F78812"}}>Dillon Virtual Gym</h2>
-      <button style={{position: "absolute",
-  top: "0",
-  right: "20px"}} onClick={handleLogout}>Log out</button>
-      <div style={{textAlign: "center",
-  marginBottom: "2em"}}>
-        {room ? (
-          <Participant
-            key={room.localParticipant.sid}
-            participant={room.localParticipant}
-          />
-        ) : (
-          ""
-        )}
-      </div>
-      <div style={{display: "flex",
-  flexWrap: "nowrap",
-  justifyContent: "space-between",
-  padding: "0 2em 2em"}}>{remoteParticipants}</div>
-    </div>
+    <Box sx={{ textAlign: "center" }}>
+      <AppBar />
+      <Typography
+        variant="h4"
+        sx={{ mt: 3, mb: 2, fontFamily: "Gill Sans", textAlign: "center" }}
+      >
+        Dillon Virtual Gym
+      </Typography>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          {room ? (
+            <Participant
+              key={room.localParticipant.sid}
+              participant={room.localParticipant}
+            />
+          ) : (
+            ""
+          )}
+        </Box>
+        <Box sx={{ m: 2, flex: "1 1 auto" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "nowrap",
+              justifyContent: "space-between",
+              overflow: "auto",
+            }}
+          >
+            {remoteParticipants}
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

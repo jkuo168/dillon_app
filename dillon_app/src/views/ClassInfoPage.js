@@ -5,7 +5,7 @@ import { Box, Typography, Card, Divider, IconButton } from "@mui/material";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import AppBar from "../components/shared/AppBar";
 import Link from '@mui/material/Link';
-
+import Facepile from '../components/shared/Facepile';
 export default function ClassInfo(props) {
   const { id } = useParams();
   const [details, setDetails] = useState({});
@@ -122,7 +122,7 @@ export default function ClassInfo(props) {
       <Box
         sx={{
           textAlign: "center",
-          mt: "15%",
+          mt: "20%",
           position: "absolute",
           width: "100%",
           top: "50%",
@@ -142,6 +142,9 @@ export default function ClassInfo(props) {
         <Typography sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}>
           Attendees: {numEnrolled}
         </Typography>
+        <div style={{marginTop: "1%", display: "flex", justifyContent: "center"}}>
+        <Facepile numEnrolled={numEnrolled}></Facepile>
+        </div>
         <Box sx={{ display: "flex", flexDirection: "column", m: 2 }}>
           {console.log("Blah")}
           {console.log(details)}

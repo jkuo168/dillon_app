@@ -9,6 +9,8 @@ import Link from '@mui/material/Link';
 export default function ClassInfo(props) {
   const { id } = useParams();
   const [details, setDetails] = useState({});
+  const [register, setRegister] = useState("Register");
+  const [numEnrolled, setNumEnrolled] = useState(0);
   console.log("ID");
   console.log(id);
 
@@ -29,6 +31,7 @@ export default function ClassInfo(props) {
         console.log("NOT GO")
         console.log(result.data[0]);
         setDetails(result.data[0]);
+        setNumEnrolled(result.data[0].numEnrolled);
       });
       return response;
     }
@@ -136,20 +139,20 @@ export default function ClassInfo(props) {
           11:30 AM - 12:30 PM
         </Typography>
         <Typography sx={{ fontWeight: 200, fontFamily: "Gill Sans" }}>
-          Attendees: {details.numEnrolled}
+          Attendees: {numEnrolled}
         </Typography>
         <Box sx={{ display: "flex", flexDirection: "column", m: 2 }}>
           {console.log("Blah")}
           {console.log(details)}
-          {details && !isToday(details.date) && <Link
+          {details && !isToday(details.date) && <Link onClick={() => {setRegister("Registered!"); setNumEnrolled(numEnrolled+1);}}
             variant="body2" underline='none'
-            sx={{ color: "#F78812", fontWeight: 500, fontFamily: "Gill Sans" }}
+            sx={{ color: "#F78812", fontWeight: "500", fontSize: "1.5em", fontFamily: "Gill Sans" }}
           >
-            REGISTER
+            {register}
           </Link>}
           {details && isToday(details.date) && 
           
-            <Link href="/video" underline='none' variant="body2" sx={{color: "#F78812", fontWeight: 500, fontFamily: "Gill Sans"}}>
+            <Link href={"/video/"+id} underline='none' variant="body2" sx={{color: "#F78812", fontWeight: 500, fontFamily: "Gill Sans"}}>
               {"JOIN CLASS"}
             </Link>          
             /*{/* <Typography

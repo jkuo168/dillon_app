@@ -4,7 +4,7 @@ import HomePage from "./views/HomePage";
 import CalendarPage from "./views/CalendarPage";
 import ProfilePage from "./views/ProfilePage";
 import ClassInfoPage from "./views/ClassInfoPage";
-import VideoPage from "./views/VideoPage";
+import VideoPage from "./components/video/VideoChat";
 import CategoryListPage from "./views/CategoryListPage";
 import theme from "./components/theme";
 
@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/calendar" component={CalendarPage} />
           <Route exact path="/profile" component={ProfilePage} />
           <Route path="/class/:id" component={ClassInfoPage} />
-          <Route path="/video" component={VideoPage} />
+          <Route path="/video/:id" component={VideoPage} />
           <Route
             path="/category/:categoryName/:id"
             component={CategoryListPage}

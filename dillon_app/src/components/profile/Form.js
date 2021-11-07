@@ -37,7 +37,7 @@ export default function AddCourseForm(props) {
 
   return (
     <Box>
-      <Backdrop sx={{ color: "#fff", p: 4 }} open={props.formOpen}>
+      <Backdrop sx={{ color: "#fff", p: 10 }} open={props.formOpen}>
         <Box
           sx={{
             width: "50%",

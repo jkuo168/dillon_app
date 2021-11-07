@@ -110,11 +110,12 @@ export default function ClassInfo(props) {
               justifyContent: "center",
               alignItems: "center",
               boxShadow: "none",
+              backgroundColor: "#faf0ca",
             }}
           >
             <Typography
               variant="h6"
-              sx={{ textAlign: "center", mb: "5%", fontWeight: 800 }}
+              sx={{ textAlign: "center", mb: "30%", fontWeight: 800 }}
             >
               60 MIN
             </Typography>
@@ -182,7 +183,12 @@ export default function ClassInfo(props) {
                   fontFamily: "Gill Sans",
                 }}
               >
-                {"JOIN CLASS"}
+                <Typography
+                  variant="subtitle1"
+                  sx={{ fontFamily: "Gill Sans", textDecoration: "underline" }}
+                >
+                  JOIN CLASS
+                </Typography>
               </Link>
             )
             /*{/* <Typography

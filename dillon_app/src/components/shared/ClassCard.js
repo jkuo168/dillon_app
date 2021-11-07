@@ -22,7 +22,7 @@ export default function MediaCard(props) {
         minWidth: "300px",
         m: 2,
         backgroundColor: "#9196A1",
-        color: "white", 
+        color: "white",
         boxShadow: 4,
         borderRadius: 2,
       }}
@@ -40,13 +40,21 @@ export default function MediaCard(props) {
           </Typography>
           <Box sx={{ display: "flex" }}>
             <AccessTimeOutlinedIcon />
-            <Typography style={{paddingLeft: "5px"}} variant="body2" component="div">
+            <Typography
+              style={{ paddingLeft: "5px" }}
+              variant="body2"
+              component="div"
+            >
               {toDate(props.class.time)}
             </Typography>
           </Box>
           <Box sx={{ display: "flex" }}>
-            <LocationOnOutlinedIcon  style={{paddingTop: "5px"}} />
-            <Typography style={{paddingLeft: "5px", paddingTop: "5px"}} variant="body2" component="div">
+            <LocationOnOutlinedIcon style={{ paddingTop: "5px" }} />
+            <Typography
+              style={{ paddingLeft: "5px", paddingTop: "5px" }}
+              variant="body2"
+              component="div"
+            >
               {props.class.location}
             </Typography>
           </Box>

@@ -19,7 +19,7 @@ export default function MediaCard(props) {
         m: 1,
         mb: 2,
         boxShadow: 4,
-        borderRadius: "9%",
+        borderRadius: 2,
       }}
     >
       <CardActionArea

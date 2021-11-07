@@ -1,10 +1,18 @@
 import axios from "../axios";
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Card, Grid } from "@mui/material";
+import { Box, Typography, Card, Grid, Fab, Backdrop } from "@mui/material";
 import AppBar from "../components/shared/AppBar";
 import ClassCard from "../components/shared/ClassCard";
+import AddIcon from "@mui/icons-material/Add";
+import AddCourseForm from "../components/profile/Form";
+
 export default function ProfilePage() {
   const [classes, setClasses] = useState([]);
+  const [formOpen, setFormOpen] = useState(false);
+  const handleForm = () => {
+    console.log("here");
+    setFormOpen(true);
+  };
 
   useEffect(() => {
     async function getClasses() {
@@ -92,6 +100,23 @@ export default function ProfilePage() {
           </Grid>
         </Box>
       </Box>
+      <Fab
+        color="primary"
+        aria-label="add"
+        sx={{
+          position: "fixed",
+          bottom: "2%",
+          right: "2%",
+          backgroundColor: "#F78812",
+          "&:hover": { backgroundColor: "#F78812", opacity: "90%" },
+        }}
+        onClick={() => {
+          handleForm();
+        }}
+      >
+        <AddIcon />
+      </Fab>
+      <AddCourseForm setFormOpen={setFormOpen} formOpen={formOpen} />
     </Box>
   );
 }
